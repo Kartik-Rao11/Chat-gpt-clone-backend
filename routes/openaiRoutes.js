@@ -32,7 +32,7 @@ const router = express.Router();
 
 /**
  * @swagger
- * /summary:
+ * /api/v1/openai/summary:
  *   post:
  *     summary: Generate a summary of the provided text
  *     tags: [OpenAI]
@@ -59,7 +59,7 @@ router.post("/summary", summaryController);
 
 /**
  * @swagger
- * /paragraph:
+ * /api/v1/openai/paragraph:
  *   post:
  *     summary: Generate a paragraph from the provided text
  *     tags: [OpenAI]
@@ -86,7 +86,7 @@ router.post("/paragraph", paragraphController);
 
 /**
  * @swagger
- * /chatbot:
+ * /api/v1/openai/chatbot:
  *   post:
  *     summary: Get a chatbot-style response based on input text
  *     tags: [OpenAI]
@@ -113,7 +113,7 @@ router.post("/chatbot", chatbotController);
 
 /**
  * @swagger
- * /js-converter:
+ * /api/v1/openai/js-converter:
  *   post:
  *     summary: Convert natural language instructions into JavaScript code
  *     tags: [OpenAI]
@@ -141,7 +141,7 @@ router.post("/js-converter", jsconverterController);
 
 /**
  * @swagger
- * /scifi-image:
+ * /api/v1/openai/scifi-image:
  *   post:
  *     summary: Generate a sci-fi image based on the input text
  *     tags: [OpenAI]
