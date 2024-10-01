@@ -6,6 +6,9 @@ const colors = require("colors");
 const dotenv = require("dotenv");
 const connectDB = require("./config/db");
 const errorHandler = require("./middelwares/errorMiddleware");
+const swaggerUi = require("swagger-ui-express");
+const swaggerSpec = require("./swaggerOptions");
+
 
 //routes path
 const authRoutes = require("./routes/authRoutes");
@@ -31,7 +34,11 @@ const PORT = process.env.PORT || 8080;
 //API routes
 app.use("/api/v1/auth", authRoutes);
 app.use("/api/v1/openai", require("./routes/openaiRoutes"));
-
+app.use("/api/v1/swagger-ui", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+app.get('/api/v1/swagger-ui-json', (req, res) => {
+  res.setHeader('Content-Type', 'application/json');
+  res.send(swaggerSpec); // Serve the Swagger spec as JSON
+});
 //listen server
 app.listen(PORT, () => {
   console.log(
